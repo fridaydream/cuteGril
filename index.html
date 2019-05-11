@@ -1,0 +1,427 @@
+
+<DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>ball ratoting</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <style>
+      *{
+        margin:0;
+        padding:0;
+      }
+        .ball{
+          width: 40px;
+          height:40px;
+          border-radius: 50%;
+          line-height: 40px;
+          text-align:center;
+          color:white;
+          position: absolute;
+        }
+        .ball1{
+          background: red;
+          top:0;
+        }
+        .ball2{
+          background: yellowgreen;
+          top:40px;
+        }
+        .ball3{
+          background: #f8b500;
+          top:80px;
+        }
+        .ball4{
+          background: #87ceeb;
+          top:120px;
+        }
+        .ball5{
+          background: pink;
+          top:160px;
+        }
+        .musicBtn img{
+          width: 45px;
+        }
+        .ballWrap{
+          width: 200px;
+          height:200px;
+          position: relative;
+          /*top:100px;*/
+          left:75px;
+        }
+        .levelhr{
+          width: 100%;
+          height: 1px;
+          background-color:#333;
+          position: fixed;
+          top:300px;
+        }
+        .zIndex100{
+          z-index: 101;
+        }
+        @-moz-keyframes rotate{
+          0%{
+            -moz-transform:rotate(0deg);
+           }
+           100%{
+             -moz-transform:rotate(-90deg);
+           }
+        }
+        @-webkit-keyframes rotate{
+          0%{
+            -webkit-transform:rotate(0deg);
+           }
+           100%{
+             -webkit-transform:rotate(-90deg);
+           }
+        }
+        @keyframes rotate{
+          0%{
+            transform:rotate(0deg);
+           }
+           100%{
+             transform:rotate(-90deg);
+           }
+        }
+        .swiperRotate{
+          -moz-animation:rotate 3s  linear;
+          -webkit-animation:rotate 3s  linear;
+          animation:rotate 3s  linear;
+          -moz-animation-fill-mode: forwards;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          -moz-transform-origin:50% 50%;
+          -webkit-transform-origin:50% 50%;
+          transform-origin:50% 50%;
+        }
+        @-moz-keyframes rotateUp{
+          0%{
+            -moz-transform:rotate(0deg);
+           }
+           100%{
+             -moz-transform:rotate(90deg);
+           }
+        }
+        @-webkit-keyframes rotateUp{
+          0%{
+            -webkit-transform:rotate(0deg);
+           }
+           100%{
+             -webkit-transform:rotate(90deg);
+           }
+        }
+        @keyframes rotateUp{
+          0%{
+            transform:rotate(0deg);
+           }
+           100%{
+             transform:rotate(90deg);
+           }
+        }
+        .swiperRotateUp{
+         -moz-animation:rotateUp 3s  linear;
+          -webkit-animation:rotateUp 3s  linear;
+          animation:rotateUp 3s  linear;
+          -moz-animation-fill-mode: forwards;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          -moz-transform-origin:50% 50%;
+          -webkit-transform-origin:50% 50%;
+          transform-origin:50% 50%;
+        }
+        @-moz-keyframes rotateBack{
+          0%{
+            -moz-transform:rotate(-90deg);
+           }
+           100%{
+             -moz-transform:rotate(0deg);
+           }
+        }
+        @-webkit-keyframes rotateBack{
+          0%{
+            -webkit-transform:rotate(-90deg);
+           }
+           100%{
+             -webkit-transform:rotate(0deg);
+           }
+        }
+        @keyframes rotateBack{
+          0%{
+            transform:rotate(-90deg);
+           }
+           100%{
+             transform:rotate(0deg);
+           }
+        }
+        .swiperRotateBack{
+          -moz-animation:rotateBack 3s  linear;
+          -webkit-animation:rotateBack 3s  linear;
+          animation:rotateBack 3s  linear;
+          -moz-animation-fill-mode: forwards;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          -moz-transform-origin:50% 50%;
+          -webkit-transform-origin:50% 50%;
+          transform-origin:50% 50%;
+        }
+        @-moz-keyframes rotateBallBack{
+          0%{
+            -moz-transform:rotate(90deg);
+           }
+           100%{
+             -moz-transform:rotate(0deg);
+           }
+        }
+        @-webkit-keyframes rotateBallBack{
+          0%{
+            -webkit-transform:rotate(90deg);
+           }
+           100%{
+             -webkit-transform:rotate(0deg);
+           }
+        }
+        @keyframes rotateBallBack{
+          0%{
+            transform:rotate(90deg);
+           }
+           100%{
+             transform:rotate(0deg);
+           }
+        }
+        .swiperRotateBallBack{
+          -moz-animation:rotateBallBack 3s  linear;
+          -webkit-animation:rotateBallBack 3s  linear;
+          animation:rotateBallBack 3s  linear;
+          -moz-animation-fill-mode: forwards;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          -moz-transform-origin:50% 50%;
+          -webkit-transform-origin:50% 50%;
+          transform-origin:50% 50%;
+        }
+
+    .wrap {
+      position: absolute;
+    }
+    .wrap1 {
+      width: 200px;
+      height: 200px;
+      top: 0;
+      -moz-animation:rotate360 8s  linear infinite;
+      -webkit-animation:rotate360 8s  linear infinite;
+      animation:rotate360 8s  linear infinite;
+
+      -moz-transform-origin:50% 50%;
+      -webkit-transform-origin:50% 50%;
+      transform-origin:50% 50%;
+    }
+    .rotate360reverse{
+      -moz-animation:rotate360reverse 8s  linear infinite;
+      -webkit-animation:rotate360reverse 8s  linear infinite;
+      animation:rotate360reverse 8s  linear infinite;
+      -moz-transform-origin:50% 50%;
+      -webkit-transform-origin:50% 50%;
+      transform-origin:50% 50%;
+    }
+    .rotate360{
+      -moz-animation:rotate360 8s  linear infinite;
+      -webkit-animation:rotate360 8s  linear infinite;
+      animation:rotate360 8s  linear infinite;
+      -moz-transform-origin:50% 50%;
+      -webkit-transform-origin:50% 50%;
+      transform-origin:50% 50%;
+    }
+    .wrap2 {
+      width: 200px;
+      height: 200px;
+      top: 0;
+      -webkit-animation:rotate360reverse 8s  linear infinite;
+      -webkit-transform-origin: 50% 50%;
+    }
+
+    @keyframes rotate360{
+      0%{
+        transform:rotate(0deg);
+       }
+       100%{
+         transform:rotate(360deg);
+       }
+    }
+    @keyframes rotate360reverse{
+      0%{
+        transform:rotate(0deg);
+       }
+       100%{
+         transform:rotate(-360deg);
+       }
+    }
+      </style>
+      
+    </head>
+    <body ng-app="myapp" ng-controller="ctrl" style="overflow: hidden;">
+      <div style="position: fixed;top:5px;right:7px;" class="musicBtn">
+        <img src="https://cdn.yonyoucloud.com/douban-store/musicBtn.png" alt=""  preload onclick="Media.play()">
+        <audio controls="controls" id="music" loop="loop" style="display: none">
+          <source src="https://cdn.yonyoucloud.com/number2demon-web/short-hair-gril.mp3" />
+        </audio>
+      </div>
+      <div class="ballWrap">
+        <div class="wrap">
+          <div class="ball ball1" style="left:-75px;">聪</div>
+          <div class="ball ball5" style="left:-75px;">爱</div>
+        </div>
+        <div class="wrap">
+          <div class="ball ball3" style="left:-75px;">很</div>
+        </div>
+        <div class="wrap">
+          <div class="ball ball2" style="left:-75px;">丽</div>
+          <div class="ball ball4" style="left:-75px;">可</div>
+        </div>
+      </div>
+     <!-- <div class="levelhr"></div> -->
+      <script src="https://cdn.yonyoucloud.com/douban-store/jquery.min.js"></script>
+      <script>
+
+        //当前高度
+        function getHeight(ele){
+          return ele.offset().top;
+        }
+        
+        function fallDown(index,stopTop,startSpeed){
+          if(index==1){
+            stopTop=-159;
+            startSpeed=-159;       
+          }
+          var nowSpeed=startSpeed;
+          var ele=$(".ball").eq(index);
+          $(".ball").removeClass("zIndex100")
+          ele.addClass("zIndex100");
+          var timer=setInterval(function(){
+            if(getHeight(ele)<=160&&nowSpeed>=0){
+              nowSpeed++;
+              ele.css("top",nowSpeed+'px');
+              if(nowSpeed==160){
+                nowSpeed=-nowSpeed;
+              }
+            }else{
+              //clearInterval(timer);
+              nowSpeed++;
+              ele.css("top",-nowSpeed+'px');
+              //console.log(nowSpeed,stopTop);
+              if(nowSpeed==stopTop){
+                clearInterval(timer);
+                if(index===1){
+                  ele.css("top",160+'px');
+                  returnBack();
+                  return
+                }
+                stopTop=stopTop-40;  
+                if (index === 0) {
+                  index = 3
+                } else if (index === 3) {
+                  index = 2
+                } else if (index === 2) {
+                  index = 4
+                } else if (index === 4) {
+                  index = 1
+                }
+                startSpeed = stopTop;
+                fallDown(index, stopTop, startSpeed);
+              }
+            }
+          }, 20);
+        }
+        function returnBack(){
+          $(".ballWrap").addClass("swiperRotateBack");
+          allTextRoateBack();
+          setTimeout(function() {
+            $('.wrap').eq(0).addClass('wrap1')
+            $('.wrap').eq(2).addClass('wrap2')
+            $('.ball1').addClass('rotate360reverse')
+            $('.ball5').addClass('rotate360reverse')
+            $('.ball2').addClass('rotate360')
+            $('.ball4').addClass('rotate360')
+          }, 3000)
+        }
+        var ball1=document.querySelector(".ball1");
+        var ball2=document.querySelector(".ball2");
+        var ball3=document.querySelector(".ball3");
+        var ball4=document.querySelector(".ball4");
+        var ball5=document.querySelector(".ball5");
+        function textRotate(ele){
+          ele.addClass("swiperRotateUp");
+        }
+        function textRotateBack(ele){
+          ele.addClass("swiperRotateBallBack");
+        }
+        function allTextRoate(){
+          textRotate($('.ball1'));
+          textRotate($('.ball2'));
+          textRotate($('.ball3'));
+          textRotate($('.ball4'));
+          textRotate($('.ball5'));
+        }
+        function allTextRoateBack(){
+          textRotateBack($('.ball1'));
+          textRotateBack($('.ball2'));
+          textRotateBack($('.ball3'));
+          textRotateBack($('.ball4'));
+          textRotateBack($('.ball5')); 
+        }
+
+        function animation(ball, marginLeft) {
+          return new Promise(function (resolve, reject) {
+            function repeat() {
+              var ballLeft = parseInt(ball.style.left);
+              if (ballLeft == marginLeft) {
+                resolve()
+              } else {
+                if (ballLeft > marginLeft) {
+                  ballLeft--;
+                } else {
+                  ballLeft++;
+                }
+                ball.style.left = ballLeft + 'px';
+                setTimeout(function() {
+                  repeat(ball, marginLeft);
+                }, 20)
+              }
+            }
+            setTimeout(repeat, 20);
+          })
+        }
+        var Media = document.getElementById("music");
+        ;(async function () {
+          await animation(ball1, 30)
+          await animation(ball2, 130)
+          await animation(ball3, 230)
+          await animation(ball3, 80)
+          await animation(ball2, 80)
+          await animation(ball1, 80)
+          await animation(ball4, 80)
+          await animation(ball5, 80)
+          $(".ballWrap").addClass("swiperRotate");
+          allTextRoate();
+          setTimeout(function(){
+            fallDown(0, 0, 0);
+          }, 3000);
+        })();
+        
+        // 微信提供的事件，微信浏览器内部初始化完成后
+        document.addEventListener("WeixinJSBridgeReady", function () {
+          Media.load();
+        }, false);
+    
+        // 监听手机摇动
+        window.addEventListener('shake', shakeEventDidOccur, false);
+    
+        function shakeEventDidOccur(obj) {
+          Media.play();
+        }
+    
+      </script>
+    </body>
+  </html>
+    
+    
+    
